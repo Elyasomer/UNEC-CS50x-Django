@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add Blog Form</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{blogForm}}
+        <button type="submit" >Submit</button>
+    </form>
+
+    <h2>Blogs</h2>
+    <ul>
+        {% for blog in blogs %}
+        <li>
+            <h3>{{blog.title}}</h3>
+            <p>{{blog.body}}</p>
+            <p>  - by {{blog.author_id}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
